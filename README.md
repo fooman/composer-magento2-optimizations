@@ -1,5 +1,6 @@
 Optimize Composer for Magento 2 projects
 ====
+[![Build Status](https://travis-ci.org/fooman/composer-magento2-optimizations.svg?branch=master)](https://travis-ci.org/fooman/composer-magento2-optimizations)
 
 # About
 Adapted for Magento 2 from [zaporylie/composer-drupal-optimizations](https://github.com/zaporylie/composer-drupal-optimizations)
