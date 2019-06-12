@@ -2,6 +2,9 @@ language: php
 dist: trusty
 sudo: false
 
+directories:
+  - $HOME/.composer/cache/files
+
 php:
   - 7.1
   - 7.2
@@ -20,7 +23,7 @@ script:
   - cd m2-folder
   - composer config --unset repo.0
   - composer config repo.foomanmirror composer https://repo-magento-mirror.fooman.co.nz/
-  - composer install
+  - composer install --prefer-dist
   # Check the performance.
   - composer update nothing --profile
   - composer config repositories.local path "../composer-magento2-optimizations" && composer require fooman/composer-magento2-optimizations:@dev
