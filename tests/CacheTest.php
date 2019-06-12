@@ -1,10 +1,10 @@
 <?php
 
-namespace zaporylie\ComposerDrupalOptimizations\Tests;
+namespace Fooman\ComposerMagentoOptimizations\Tests;
 
 use Composer\IO\NullIO;
 use PHPUnit\Framework\TestCase;
-use zaporylie\ComposerDrupalOptimizations\Cache;
+use Fooman\ComposerMagentoOptimizations\Cache;
 
 class CacheTest extends TestCase
 {
@@ -17,7 +17,7 @@ class CacheTest extends TestCase
      * @param $expected
      *
      * @dataProvider provideReadTest
-     * @covers \zaporylie\ComposerDrupalOptimizations\Cache::read
+     * @covers \Fooman\ComposerMagentoOptimizations\Cache::read
      */
     public function testRead($provided, $expected)
     {
@@ -56,7 +56,7 @@ class CacheTest extends TestCase
 
     /**
      * @dataProvider provideRemoveLegacyTags
-     * @covers \zaporylie\ComposerDrupalOptimizations\Cache::removeLegacyTags
+     * @covers \Fooman\ComposerMagentoOptimizations\Cache::removeLegacyTags
      */
     public function testRemoveLegacyTags(array $expected, array $packages, array $versionConstraints)
     {

@@ -3,28 +3,11 @@ dist: trusty
 sudo: false
 
 php:
-  - 5.6
-  - 7.0
   - 7.1
   - 7.2
-  - 7.3
-
-env:
-  matrix:
-    - RELEASE=stable COMPOSER_CHANNEL=stable
-    - RELEASE=dev COMPOSER_CHANNEL=stable
-    - RELEASE=stable COMPOSER_CHANNEL=snapshot
-
-matrix:
-  exclude:
-    - php: 5.6
-      env: RELEASE=dev COMPOSER_CHANNEL=stable
-    - php: 5.6
-      env: RELEASE=stable COMPOSER_CHANNEL=snapshot
 
 before_install:
-  - if [[ $TRAVIS_PHP_VERSION = 5.6 ]]; then export COMPOSER_MEMORY_LIMIT=-1; fi;
-  - composer --verbose self-update --$COMPOSER_CHANNEL
+  - composer --verbose self-update
   - composer --version
 
 install:
@@ -32,16 +15,13 @@ install:
 
 script:
   # Run automated tests.
-  - if [[ ${TRAVIS_PHP_VERSION:0:3} != "5.6" ]]; then composer install && ./vendor/bin/phpunit; fi
-  - cd .. && composer create-project drupal-composer/drupal-project:8.x-dev drupal-project --stability dev --no-interaction
-  - ls -lah . && cd drupal-project
-  # zaporylie/composer-drupal-optimizations has been added to drupal-composer/drupal-project and now must be removed
-  # in order to measure the performance change.
-  - composer remove zaporylie/composer-drupal-optimizations
-  - if [[ $RELEASE = dev ]]; then composer --verbose require --no-update --dev webflo/drupal-core-require-dev:8.6.x-dev; fi;
-  - if [[ $RELEASE = dev ]]; then composer --verbose require --no-update drupal/core:8.6.x-dev; fi;
-  - if [[ $RELEASE = dev ]]; then composer --verbose update; fi;
+  - composer install && ./vendor/bin/phpunit
+  - cd .. && composer create-project --repository=https://repo-magento-mirror.fooman.co.nz/ magento/project-community-edition:^2.3 m2-folder --no-install --no-interaction
+  - cd m2-folder
+  - composer config --unset repo.0
+  - composer config repo.foomanmirror composer https://repo-magento-mirror.fooman.co.nz/
+  - composer install
   # Check the performance.
   - composer update nothing --profile
-  - composer config repositories.local path "../composer-drupal-optimizations" && composer require zaporylie/composer-drupal-optimizations:@dev
+  - composer config repositories.local path "../composer-magento2-optimizations" && composer require fooman/composer-magento2-optimizations:@dev
   - composer update nothing --profile

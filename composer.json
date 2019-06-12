@@ -1,12 +1,16 @@
 {
-    "name": "zaporylie/composer-drupal-optimizations",
-    "description": "Composer plugin to improve composer performance for Drupal projects",
+    "name": "fooman/composer-magento2-optimizations",
+    "description": "Composer plugin to improve composer performance for Magento 2 projects",
     "type": "composer-plugin",
     "license": "GPL-2.0-or-later",
     "authors": [
         {
             "name": "Jakub Piasecki",
             "email": "jakub@piaseccy.pl"
+        },
+        {
+            "name": "Kristof Ringleff",
+            "email": "kristof@fooman.co.nz"
         }
     ],
     "require": {
@@ -18,10 +22,10 @@
     },
     "autoload": {
         "psr-4": {
-            "zaporylie\\ComposerDrupalOptimizations\\": "src/"
+            "Fooman\\ComposerMagentoOptimizations\\": "src/"
         }
     },
     "extra": {
-        "class": "zaporylie\\ComposerDrupalOptimizations\\Plugin"
+        "class": "Fooman\\ComposerMagentoOptimizations\\Plugin"
     }
 }

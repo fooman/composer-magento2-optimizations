@@ -1,6 +1,6 @@
 <?php
 
-namespace zaporylie\ComposerDrupalOptimizations;
+namespace Fooman\ComposerMagentoOptimizations;
 
 use Composer\Cache as BaseCache;
 use Composer\Semver\Constraint\Constraint;
@@ -8,7 +8,7 @@ use Composer\Semver\VersionParser;
 
 /**
  * Class Cache
- * @package zaporylie\ComposerDrupalOptimizations
+ * @package Fooman\ComposerMagentoOptimizations
  */
 class Cache extends BaseCache
 {

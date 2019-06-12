@@ -1,6 +1,6 @@
 <?php
 
-namespace zaporylie\ComposerDrupalOptimizations;
+namespace Fooman\ComposerMagentoOptimizations;
 
 use Composer\Config;
 use Composer\EventDispatcher\EventDispatcher;

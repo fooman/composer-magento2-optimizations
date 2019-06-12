@@ -1,10 +1,10 @@
 <?php
 
-namespace zaporylie\ComposerDrupalOptimizations\Tests;
+namespace Fooman\ComposerMagentoOptimizations\Tests;
 
 use Composer\Semver\VersionParser;
 use PHPUnit\Framework\TestCase;
-use zaporylie\ComposerDrupalOptimizations\Plugin;
+use Fooman\ComposerMagentoOptimizations\Plugin;
 
 class DefaultRequireTest extends TestCase
 {
@@ -27,14 +27,14 @@ class DefaultRequireTest extends TestCase
      */
     function provideTestData()
     {
-        yield 'exact-below' => ['8.2.0', []];
-        yield 'exact-above' => ['8.6.0', ['symfony/symfony' => '>3.4']];
-        yield 'exact-min' => ['8.5.0', ['symfony/symfony' => '>3.4']];
-        yield 'range-below' => ['~8.4.0', []];
-        yield 'range-overlapping' => ['>8.4.0 <8.6.0', []];
-        yield 'range-below-above' => ['~8.2.0|~8.6.0', []];
-        yield 'range-above' => ['~8.6.0', ['symfony/symfony' => '>3.4']];
-        yield 'range-min' => ['^8.5', ['symfony/symfony' => '>3.4']];
+        yield 'exact-below' => ['2.1.0', []];
+        yield 'exact-above' => ['2.4.0', ['symfony/symfony' => '>4.1']];
+        yield 'exact-min' => ['2.3.0', ['symfony/symfony' => '>4.1']];
+        yield 'range-below' => ['~2.2.0', []];
+        yield 'range-overlapping' => ['>2.2.0 <2.4.0', []];
+        yield 'range-below-above' => ['~2.1.0|~2.4.0', []];
+        yield 'range-above' => ['~2.4.0', ['symfony/symfony' => '>4.1']];
+        yield 'range-min' => ['^2.3', ['symfony/symfony' => '>4.1']];
     }
 
 }
