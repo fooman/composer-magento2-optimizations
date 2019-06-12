@@ -18,13 +18,13 @@ No configuration required 🎊
 
 - Reduce memory usage and CPU usage by removing legacy symfony tags
 
-# Unscientific Benchmark
+# Benchmark
 
-Before
-> [1165.2MB/123.52s] Memory usage: 1165.16MB (peak: 4744.7MB), time: 123.52s
+[Before](https://travis-ci.org/fooman/composer-magento2-optimizations/jobs/544611808#L1190)
+> Memory usage: 351.1MiB (peak: 1092.15MiB), time: 17.23s
 
-After
-> [923.5MB/43.85s] Memory usage: 923.49MB (peak: 1151.42MB), time: 43.85s
+[After](https://travis-ci.org/fooman/composer-magento2-optimizations/jobs/544611808#L1210)
+> Memory usage: 268.44MiB (peak: 345.67MiB), time: 8.67s
 
 # Configuration
 
