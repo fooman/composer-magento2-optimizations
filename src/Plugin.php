@@ -22,7 +22,12 @@ class Plugin implements PluginInterface
         if (!isset($extra['composer-magento2-optimizations']['require'])
             && (isset($packages['magento/product-community-edition']) || isset($packages['magento/product-enterprise-edition']))
         ) {
-            $coreConstraint = $packages['magento/product-community-edition']->getConstraint();
+            if (isset($packages['magento/product-community-edition'])) {
+                $coreConstraint = $packages['magento/product-community-edition']->getConstraint();
+            } else {
+                $coreConstraint = $packages['magento/product-enterprise-edition']->getConstraint();
+            }
+
             $extra['composer-magento2-optimizations']['require'] = static::getDefaultRequire($coreConstraint);
             if (!empty($extra['composer-magento2-optimizations']['require']) && $io->isVerbose()) {
                 $io->write('Required tags were not explicitly set so the fooman/composer-magento2-optimizations set default based on project\'s composer.json content.');
