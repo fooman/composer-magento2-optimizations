@@ -20,10 +20,12 @@ class Plugin implements PluginInterface
         $extra = $composer->getPackage()->getExtra();
         $packages = $composer->getPackage()->getRequires();
         if (!isset($extra['composer-magento2-optimizations']['require'])
-            && (isset($packages['magento/product-community-edition']) || isset($packages['magento/product-enterprise-edition']))
+            && (isset($packages['magento/product-community-edition']) || isset($packages['magento/product-enterprise-edition']) || isset($packages['magento/magento-cloud-metapackage']))
         ) {
             if (isset($packages['magento/product-community-edition'])) {
                 $coreConstraint = $packages['magento/product-community-edition']->getConstraint();
+            } elseif (isset($packages['magento/magento-cloud-metapackage'])) {
+                $coreConstraint = $packages['magento/magento-cloud-metapackage']->getConstraint();
             } else {
                 $coreConstraint = $packages['magento/product-enterprise-edition']->getConstraint();
             }
