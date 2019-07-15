@@ -9,7 +9,6 @@ This composer-plugin contains a set of improvements that makes running heavy dut
 # Installation
 
 ```bash
-composer config repositories.foomanm2opt git https://github.com/fooman/composer-magento2-optimizations.git
 composer require fooman/composer-magento2-optimizations:dev-master
 ```
 
@@ -45,7 +44,7 @@ that should be filtered out you are welcome to use the `extra` section:
 }
 ```
 
-All you have to do is to make sure your Magento project constraint in the root composer.json is set to `magento/project-community-edition: 2.3.0`/`magento/project-enterprise-edition: 2.3.0` or above.
+All you have to do is to make sure your Magento project constraint in the root composer.json is set to `magento/project-community-edition: 2.3.0`/`magento/project-enterprise-edition: 2.3.0`/`magento/magento-cloud-metapackage: 2.3.0` or above.
 
 # Credits
 
