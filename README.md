@@ -9,7 +9,7 @@ This composer-plugin contains a set of improvements that makes running heavy dut
 # Installation
 
 ```bash
-composer require fooman/composer-magento2-optimizations:dev-master
+composer require --dev fooman/composer-magento2-optimizations:dev-master
 ```
 
 No configuration required 🎊
