@@ -16,6 +16,12 @@ class Plugin implements PluginInterface
 
     public function activate(Composer $composer, IOInterface $io)
     {
+        if (version_compare('2.0.0', PluginInterface::PLUGIN_API_VERSION, '<=')) {
+            if ($io->isVerbose()) {
+                $io->write(sprintf('fooman/composer-magento2-optimizations is disabled for Composer 2.'));
+            }
+            return;
+        }
         // Set default version constraints based on the composer requirements.
         $extra = $composer->getPackage()->getExtra();
         $packages = $composer->getPackage()->getRequires();
@@ -76,5 +82,13 @@ class Plugin implements PluginInterface
             ];
         }
         return [];
+    }
+
+    public function deactivate(Composer $composer, IOInterface $io)
+    {
+    }
+
+    public function uninstall(Composer $composer, IOInterface $io)
+    {
     }
 }
