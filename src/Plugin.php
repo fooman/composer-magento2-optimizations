@@ -67,7 +67,7 @@ class Plugin implements PluginInterface
      *
      * @return array
      */
-    static public function getDefaultRequire(ConstraintInterface $coreConstraint)
+    public static function getDefaultRequire(ConstraintInterface $coreConstraint)
     {
         if ((new Constraint('>=', '2.3.0'))->matches($coreConstraint)
             && !(new Constraint('<', '2.3.0'))->matches($coreConstraint)) {
