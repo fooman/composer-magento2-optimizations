@@ -17,9 +17,7 @@ class Plugin implements PluginInterface
     public function activate(Composer $composer, IOInterface $io)
     {
         if (version_compare('2.0.0', PluginInterface::PLUGIN_API_VERSION, '<=')) {
-            if ($io->isVerbose()) {
-                $io->write(sprintf('fooman/composer-magento2-optimizations is disabled for Composer 2.'));
-            }
+            $io->write(sprintf('fooman/composer-magento2-optimizations is no longer needed for Composer 2 and can be removed from your project.'));
             return;
         }
         // Set default version constraints based on the composer requirements.
