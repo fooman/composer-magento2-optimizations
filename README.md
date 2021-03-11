@@ -1,4 +1,4 @@
-Optimize Composer for Magento 2.3.0+ projects
+Optimize Composer 1.x for Magento 2.3.0+ projects
 ====
 [![Build Status](https://travis-ci.org/fooman/composer-magento2-optimizations.svg?branch=master)](https://travis-ci.org/fooman/composer-magento2-optimizations)
 
